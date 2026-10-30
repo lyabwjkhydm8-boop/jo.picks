@@ -2,185 +2,197 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Jo Picks | بيجامات تركية وأزياء نسائية</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jo Picks | Women's Turkish Pajamas Collection - Elegant Modest Cozy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--teal:#0f5e5a;--teal2:#14736e;--cream:#fbf7ef;--sand:#efe6d6;--line:#e4d6bd;--gold:#b98f45;--gold2:#d6b46a;--ink:#17403d;--mute:#8a7a62}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Tajawal',Tahoma,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
-.wrap{max-width:760px;margin:0 auto;padding:10px 14px 50px}
-.logo{font-family:'Great Vibes',cursive;font-size:64px;line-height:1.1;text-align:center;color:var(--gold);margin:6px 0 10px;direction:ltr}
-.adminbar{display:none;align-items:center;justify-content:center;gap:10px;background:var(--teal);color:#fff;border:2px solid var(--gold2);border-radius:999px;padding:9px 16px;margin-bottom:12px;font-weight:700;font-size:14px;cursor:pointer}
-body.admin .adminbar{display:flex}
-.banner{background:var(--teal);color:#fff;border-radius:16px;border:2px solid var(--gold2);padding:16px 14px 14px;text-align:center;margin-bottom:20px}
-.banner h2{color:var(--gold2);font-size:20px;font-weight:800}
-.banner p{font-size:13px;margin:2px 0 12px}
-.code{background:var(--cream);color:var(--teal);border:2px dashed var(--gold2);border-radius:12px;padding:10px;max-width:340px;margin:0 auto}
-.code small{display:block;font-size:12px;color:var(--mute)}
-.code b{display:block;font-size:30px;letter-spacing:3px;font-weight:800;direction:ltr}
-.code span{font-size:12px;color:var(--ink)}
-.copy{margin-top:10px;background:var(--gold2);color:var(--teal);border:0;border-radius:999px;padding:8px 22px;font:inherit;font-weight:800;cursor:pointer}
-.row{display:flex;justify-content:space-between;align-items:baseline;margin:6px 4px 10px}
-.row h3{font-size:20px;font-weight:800}
-.row span{color:var(--gold);font-size:13px;font-weight:700}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
-.cats::-webkit-scrollbar{display:none}
-.cat{flex:none;width:76px;background:var(--cream);border:1.5px solid var(--teal);border-radius:14px;padding:8px 2px 6px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);font-size:12px;font-weight:700}
-.cat i{display:block;font-style:normal;font-size:24px;line-height:1.3;filter:grayscale(.6)}
-.cat.on{background:var(--teal);color:#fff;border-color:var(--gold2)}
-.cat.on i{filter:none}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-@media(min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.card{background:var(--cream);border:1.5px solid var(--line);border-radius:18px;padding:10px;display:flex;flex-direction:column;text-align:center}
-.card .im{aspect-ratio:1/1;border-radius:12px;background:var(--sand);overflow:hidden}
-.card img,.card video{width:100%;height:100%;object-fit:cover;display:block}
-.card h4{font-size:14px;font-weight:800;color:var(--teal);margin:8px 0 0;min-height:42px}
-.card .ct{font-size:12px;color:var(--mute)}
-.price{align-self:center;background:var(--gold2);color:var(--teal);font-weight:800;font-size:14px;border-radius:6px;padding:1px 14px;margin:6px 0 8px}
-.buy{margin-top:auto;background:var(--teal);color:#fff;border-radius:12px;padding:9px;text-decoration:none;font-weight:800;font-size:14px;display:block}
-.del{display:none;margin-top:6px;background:#fdeaea;color:#b03a2e;border:0;border-radius:10px;padding:7px;font:inherit;font-size:12px;cursor:pointer}
-body.admin .del{display:block}
-.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:40px 0}
-.panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;overflow:auto;padding:16px}
-.box{max-width:520px;margin:10px auto;background:#fff;color:var(--ink);border-radius:18px;padding:16px;border:2px solid var(--gold2)}
-.box label{display:block;font-size:12px;color:var(--mute);margin-top:10px}
-.box input,.box select{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--cream);margin-top:3px}
-.box button{width:100%;font:inherit;font-weight:800;border:0;border-radius:12px;padding:11px;margin-top:10px;cursor:pointer}
-.b1{background:var(--teal);color:#fff}.b2{background:var(--gold2);color:var(--teal)}.b3{background:#fdeaea;color:#b03a2e}.b4{background:var(--sand);color:var(--ink)}
-.box h3{margin-top:16px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-#msg{margin-top:10px;font-size:13px;color:var(--teal);font-weight:700}
+body{font-family:'Tajawal',sans-serif;background:#FAF6F0;color:#2b2b2b;line-height:1.6}
+:root{--teal:#0F5E5A;--beige:#F5EFE6;--beige2:#EDE5D8;--gold:#C9A86A;--gold2:#D4AF37;--sand:#8B7355}
+.hero{position:relative;width:100%;min-height:62vh;background:linear-gradient(90deg,#FAF6F0 0%,#F5EFE6 45%,#E8DDD0 100%);overflow:hidden;display:flex;align-items:center;border-bottom:2px solid var(--beige2)}
+.hero-bg{position:absolute;right:0;top:0;width:58%;height:100%;background:url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=900') center/cover;opacity:.28}
+.hero-content{position:relative;z-index:2;padding:28px;max-width:560px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:56px;color:var(--gold);font-style:italic}
+.logo-sub{color:var(--teal);font-size:13px;letter-spacing:.28em;font-weight:800}
+.divider{color:var(--sand);letter-spacing:.18em;font-size:12px;margin:10px 0;display:block}
+.specs{font-size:11px;letter-spacing:.14em;color:#6B5D4D;border-top:1px solid var(--gold2);border-bottom:1px solid var(--gold2);padding:9px 0;display:inline-block}
+.code-badge{margin-top:18px;background:var(--teal);color:white;padding:14px 24px;border-radius:30px;display:inline-flex;align-items:center;gap:10px;font-weight:800;box-shadow:0 8px 22px rgba(15,94,90,.3)}
+.code-badge b{color:#F9E6A0;font-size:20px;letter-spacing:2px}
+.btn-copy{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:white;padding:6px 14px;border-radius:20px;cursor:pointer;font-weight:700;font-family:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:12px 0;position:sticky;top:0;background:rgba(250,246,240,.92);backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid var(--beige2)}
+.tab{white-space:nowrap;padding:10px 18px;border-radius:30px;background:white;border:1px solid var(--beige2);cursor:pointer;font-weight:700;font-size:13px;color:var(--teal)}
+.tab.active{background:var(--teal);color:white;border-color:var(--teal)}
+.cat-title{font-size:19px;font-weight:800;color:var(--teal);margin:28px 8px 12px;display:flex;align-items:center;gap:10px}
+.cat-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold2),transparent)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:768px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(139,115,85,.13);border:1px solid var(--beige2);display:flex;flex-direction:column}
+.card img,.card video{width:100%;height:210px;object-fit:cover;background:var(--beige);display:block}
+.card-body{padding:12px;flex:1;display:flex;flex-direction:column}
+.card-body h3{font-size:13px;min-height:38px}
+.price{color:var(--teal);font-weight:800;margin:6px 0}
+.meta span{font-size:10px;background:var(--beige);padding:4px 9px;border-radius:20px;color:var(--sand)}
+.buy{margin-top:auto;background:linear-gradient(135deg,var(--teal),#1A7A75);color:white;text-align:center;padding:11px;border-radius:12px;text-decoration:none;font-weight:800;display:block}
+.del{margin-top:6px;background:#ffe9e9;color:#c0392b;text-align:center;padding:8px;border-radius:10px;cursor:pointer;font-size:12px;display:none}
+body.admin .card .del{display:block}
+.more{display:block;margin:26px auto 10px;background:var(--teal);color:white;border:0;border-radius:30px;padding:13px 34px;font:inherit;font-weight:800;cursor:pointer}
+.adminFab{display:none;position:fixed;bottom:18px;left:18px;background:#2b2b2b;color:#F5EFE6;padding:14px 20px;border-radius:30px;cursor:pointer;z-index:50;font-weight:800}
+body.admin .adminFab{display:block}
+.adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;overflow:auto;padding:18px}
+.adminBox{max-width:520px;margin:20px auto;background:#1F1F1F;color:#F5EFE6;border-radius:18px;padding:18px;border:1px solid #333}
+.adminBox label{font-size:12px;color:#aaa;margin-top:10px;display:block}
+.adminBox input,.adminBox select{width:100%;padding:12px;border-radius:10px;margin:6px 0;background:#2b2b2b;color:white;border:1px solid #444;font-family:inherit}
+.adminBox button{width:100%;padding:12px;border-radius:12px;border:0;font-weight:800;margin-top:8px;cursor:pointer;font-family:inherit}
+.btnGold{background:var(--gold);color:#1F1F1F}
+.btnTeal{background:var(--teal);color:white}
+.btnGhost{background:#2b2b2b;color:#aaa;border:1px solid #444 !important}
+.stats{display:flex;gap:8px;margin:10px 0}
+.stats div{flex:1;background:#2b2b2b;border-radius:12px;padding:10px;text-align:center;border:1px solid #333}
+.stats b{font-size:18px;color:var(--gold);display:block}
+#msg{margin-top:10px;font-size:13px;color:#9be0c4;font-weight:700}
+.empty{text-align:center;padding:40px;color:#8B7355}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="logo" id="logo">Jo Picks</div>
-  <div class="adminbar" id="adminbar">لوحة الإدارة • مفعّلة • افتحي للتعديل</div>
-
-  <div class="banner">
-    <h2>أهلاً بكِ في <span id="nm">Jo Picks</span></h2>
-    <p>أنيق • محتشم • دافئ • بيجامات تركية</p>
-    <div class="code"><small>كود الخصم</small><b id="code">J4YECUK</b><span>استخدميه عند التسجيل بتطبيق شي إن</span></div>
-    <button class="copy" id="copy">نسخ الكود</button>
-  </div>
-
-  <div class="row"><h3>الأقسام</h3></div>
-  <div class="cats" id="cats"></div>
-
-  <div class="row"><h3>منتجات مختارة</h3></div>
-  <div class="grid" id="grid"></div>
+<div class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="logo">Jo Picks</div>
+<div class="logo-sub">WOMEN'S TURKISH PAJAMAS COLLECTION</div>
+<span class="divider">— ELEGANT • MODEST • COZY —</span>
+<div class="specs">SATIN & COTTON • LACE DETAILS • TEAL | BEIGE | GOLD</div>
+<div class="code-badge"><span>كود خصم:</span><b id="mainCode">J4YECUK</b><button class="btn-copy" id="copyBtn">📋 نسخ</button></div>
+<div style="margin-top:12px;font-size:12px;color:#6B5D4D">احصلي على خصم إضافي عند استخدام كودي في شي إن 🤍</div>
 </div>
-
-<div class="panel" id="panel"><div class="box">
-  <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:18px">لوحة تحكم Jo Picks</b><button onclick="closeP()" style="width:auto;padding:6px 14px;background:var(--sand)">إغلاق</button></div>
-  <label>توكن GitHub (مرة وحدة، ينحفظ على جهازك فقط)</label><input id="tok" type="password">
-  <label>كود الخصم</label><input id="a_code">
-  <div class="two"><div><label>اسم المتجر</label><input id="a_name"></div><div><label>رابط الأفلييت الأساسي</label><input id="a_link" type="url"></div></div>
-  <button class="b2" id="saveS">حفظ الكود والروابط</button>
-  <h3>إضافة منتج جديد</h3>
-  <label>القسم</label><select id="p_cat"></select>
-  <label>اسم المنتج</label><input id="p_name">
-  <div class="two"><div><label>السعر</label><input id="p_price" placeholder="24 د.أ"></div><div><label>رابط أفلييت خاص (اختياري)</label><input id="p_link" type="url"></div></div>
-  <label>صورة المنتج (من التلفون)</label><input id="p_img" type="file" accept="image/*">
-  <label>فيديو (اختياري)</label><input id="p_vid" type="file" accept="video/*">
-  <button class="b1" id="addP">إضافة المنتج</button>
-  <button class="b3" id="clr">مسح كل المنتجات</button>
-  <div id="msg"></div>
-</div></div>
-
+</div>
+<div class="wrap">
+<div class="tabs" id="tabs"></div>
+<div id="sections"></div>
+</div>
+<div class="adminFab" id="fab">👑 أدمن</div>
+<div class="adminPanel" id="adminPanel">
+<div class="adminBox">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3>لوحة تحكم JO.PICKS</h3><button id="closeBtn" style="width:auto;background:#333;color:white;padding:8px 14px;border-radius:20px">✕</button></div>
+<div class="stats"><div><b id="st_total">0</b><span style="font-size:11px;color:#aaa">منتج</span></div><div><b id="st_code">J4YECUK</b><span style="font-size:11px;color:#aaa">الكود</span></div></div>
+<label>توكن GitHub (مرة وحدة، ينحفظ على جهازك فقط)</label><input id="tok" type="password">
+<label>كود الخصم</label><input id="a_code">
+<label>رابط الأفلييت الأساسي</label><input id="a_link">
+<label>اسم المتجر</label><input id="a_name">
+<button class="btnGold" id="saveS">حفظ كود الخصم والروابط 💾</button>
+<h3 style="margin-top:18px">➕ إضافة منتج جديد</h3>
+<label>القسم</label><select id="p_cat"></select>
+<label>اسم المنتج</label><input id="p_name" placeholder="بيجاما ساتان تيفاني مع دانتيل ذهبي">
+<label>السعر</label><input id="p_price" placeholder="24 د.أ">
+<label>صورة المنتج من التلفون 📸</label><input type="file" id="p_img" accept="image/*">
+<label>فيديو (اختياري)</label><input type="file" id="p_vid" accept="video/*">
+<label>رابط أفلييت خاص (اختياري)</label><input id="p_link" placeholder="https://...">
+<button class="btnTeal" id="addP">إضافة المنتج ✅</button>
+<button class="btnGhost" id="clr" style="color:#ff8a8a;margin-top:18px">مسح كل المنتجات ⚠️</button>
+<div id="msg"></div>
+</div>
+</div>
 <script>
-const ADMIN_CODE="jo77";
-const CATS=[["pajamas","بيجامات","🌙"],["clothes","ملابس","👕"],["bags","حقائب وأحذية","👜"],["acc","إكسسوارات وهدايا","💍"],["beauty","عطور ومكياج","💄"],["lingerie","لانجري وعرائس","👰"]];
+const ADMIN_CODE="jo77",PAGE=24;
+const CATS=[["pajamas","بيجامات تركية","🤎 بيجامات تركية فاخرة - ساتان وقطن"],["clothes","ملابس","👗 ملابس"],["bags","حقائب وأحذية","👜 حقائب وأحذية"],["acc","إكسسوارات وهدايا","💍 إكسسوارات وهدايا"],["beauty","عطور • مكياج","💄 عطور و مكياج"],["lingerie","لانجري • عرائس","👰 لانجري و عرائس"]];
 let data={name:"Jo Picks",code:"J4YECUK",link:"https://onelink.shein.com/58/66aaihsqsavt?ismg_ol=21gvunjldxU_01_KOC-C",products:[]};
-let cur="all",isAdmin=false;
+let cur="all",shown=PAGE;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe=u=>/^https?:\/\//i.test(u||"")?u:"#";
-const catName=k=>(CATS.find(c=>c[0]===k)||[0,"منتج"])[1];
 
 async function load(){
-  try{const r=await fetch("data.json?v="+Date.now());if(r.ok)data=Object.assign(data,await r.json())}catch(e){}
-  data.products=data.products||[];render();
+ try{const r=await fetch("data.json?v="+Date.now());if(r.ok)data=Object.assign(data,await r.json())}catch(e){}
+ data.products=data.products||[];render();
 }
 function render(){
-  $("nm").textContent=data.name||"Jo Picks";
-  $("code").textContent=data.code;
-  $("cats").innerHTML=[["all","الكل","✨"],...CATS].map(c=>`<button class="cat ${c[0]===cur?"on":""}" data-c="${c[0]}"><i>${c[2]}</i>${c[1]}</button>`).join("");
-  const list=data.products.filter(p=>cur==="all"||p.cat===cur);
-  $("grid").innerHTML=list.length?list.map(card).join(""):'<div class="empty">ما في منتجات بهذا القسم حالياً</div>';
+ $("mainCode").textContent=data.code;
+ $("st_total").textContent=data.products.length;
+ $("st_code").textContent=data.code;
+ $("tabs").innerHTML=[["all","الكل ✨"],...CATS.map(c=>[c[0],c[1]])].map(t=>`<div class="tab ${t[0]===cur?"active":""}" data-cat="${t[0]}">${t[1]}</div>`).join("");
+ let html="",left=shown,total=0;
+ CATS.filter(c=>cur==="all"||cur===c[0]).forEach(c=>{
+  const list=data.products.filter(p=>p.cat===c[0]);
+  if(!list.length)return;
+  total+=list.length;
+  const part=list.slice(0,Math.max(left,0));left-=part.length;
+  if(part.length)html+=`<div class="cat-title">${c[2]} <span style="font-size:12px;background:#0F5E5A;color:white;padding:2px 8px;border-radius:20px">${list.length}</span></div><div class="grid">`+part.map(card).join("")+"</div>";
+ });
+ if(total>shown)html+=`<button class="more" data-more="1">عرض المزيد (${total-shown})</button>`;
+ $("sections").innerHTML=html||'<div class="empty">ما في منتجات بهذا القسم حالياً 🤍</div>';
 }
 function card(p){
-  const m=p.vid?`<video src="${esc(p.vid)}" ${p.img?`poster="${esc(p.img)}"`:""} controls playsinline preload="none"></video>`:`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`;
-  return `<div class="card"><div class="im">${m}</div><h4>${esc(p.name)}</h4><div class="ct">${esc(catName(p.cat))}</div><div class="price">${esc(p.price)}</div><a class="buy" href="${esc(safe(p.link||data.link))}" target="_blank" rel="noopener">اطلبه الآن</a><button class="del" data-del="${esc(p.id)}">حذف المنتج</button></div>`;
+ const m=p.vid?`<video src="${esc(p.vid)}" ${p.img?`poster="${esc(p.img)}"`:""} controls playsinline preload="none"></video>`:`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async">`;
+ return `<div class="card">${m}<div class="card-body"><h3>${esc(p.name)}</h3><div class="price">${esc(p.price)}</div><div class="meta"><span>الكود: ${esc(data.code)}</span></div><a class="buy" href="${esc(safe(p.link||data.link))}" target="_blank" rel="noopener">اطلبه الحين 🛒</a><div class="del" data-del="${esc(p.id)}">حذف 🗑️</div></div></div>`;
 }
 document.addEventListener("click",e=>{
-  const t=e.target.closest("[data-c],[data-del]");if(!t)return;
-  if(t.dataset.c){cur=t.dataset.c;render()}
-  else removeP(t.dataset.del);
+ const t=e.target.closest("[data-cat],[data-del],[data-more]");if(!t)return;
+ if(t.dataset.cat){cur=t.dataset.cat;shown=PAGE;render()}
+ else if(t.dataset.more){shown+=PAGE;render()}
+ else removeP(t.dataset.del);
 });
-$("copy").onclick=()=>{navigator.clipboard?.writeText(data.code);$("copy").textContent="تم النسخ";setTimeout(()=>$("copy").textContent="نسخ الكود",1500)};
+$("copyBtn").onclick=()=>{navigator.clipboard?.writeText(data.code);$("copyBtn").textContent="تم النسخ ✓";setTimeout(()=>$("copyBtn").textContent="📋 نسخ",1500)};
 
 function gh(){
-  const h=location.hostname,parts=location.pathname.split("/").filter(Boolean);
-  return {o:localStorage.jp_owner||h.split(".")[0],r:localStorage.jp_repo||parts[0]||h,t:localStorage.jp_token};
+ const h=location.hostname,parts=location.pathname.split("/").filter(Boolean);
+ return {o:localStorage.jp_owner||h.split(".")[0],r:localStorage.jp_repo||parts[0]||h,t:localStorage.jp_token};
 }
 async function api(path,method,body){
-  const {o,r,t}=gh();
-  return fetch(`https://api.github.com/repos/${o}/${r}/contents/${path}`,{method,headers:{Authorization:"Bearer "+t,Accept:"application/vnd.github+json"},body:body?JSON.stringify(body):undefined});
+ const {o,r,t}=gh();
+ return fetch(`https://api.github.com/repos/${o}/${r}/contents/${path}`,{method,headers:{Authorization:"Bearer "+t,Accept:"application/vnd.github+json"},body:body?JSON.stringify(body):undefined});
 }
 async function putFile(path,b64,msg){
-  const g=await api(path,"GET");let sha;if(g.ok)sha=(await g.json()).sha;
-  const p=await api(path,"PUT",{message:msg,content:b64,sha});
-  if(!p.ok)throw new Error((await p.json()).message||"فشل الحفظ");
+ const g=await api(path,"GET");let sha;if(g.ok)sha=(await g.json()).sha;
+ const p=await api(path,"PUT",{message:msg,content:b64,sha});
+ if(!p.ok)throw new Error((await p.json()).message||"فشل الحفظ");
 }
-const saveData=()=>putFile("data.json",btoa(unescape(encodeURIComponent(JSON.stringify(data,null,1)))),"update store");
+const saveData=()=>putFile("data.json",btoa(unescape(encodeURIComponent(JSON.stringify(data)))),"update store");
 function fileB64(f,img){return new Promise((ok,no)=>{
-  const rd=new FileReader();rd.onerror=no;
-  rd.onload=()=>{
-    if(!img)return ok(rd.result.split(",")[1]);
-    const im=new Image();
-    im.onload=()=>{const k=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);ok(c.toDataURL("image/jpeg",.82).split(",")[1])};
-    im.onerror=no;im.src=rd.result;
-  };
-  rd.readAsDataURL(f);
+ const rd=new FileReader();rd.onerror=no;
+ rd.onload=()=>{
+  if(!img)return ok(rd.result.split(",")[1]);
+  const im=new Image();
+  im.onload=()=>{const k=Math.min(1,800/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);ok(c.toDataURL("image/jpeg",.78).split(",")[1])};
+  im.onerror=no;im.src=rd.result;
+ };
+ rd.readAsDataURL(f);
 })}
 async function run(fn){
-  const m=$("msg"),tk=$("tok").value.trim();
-  if(!tk){m.style.color="#b03a2e";m.textContent="حطي التوكن أول";return}
-  localStorage.jp_token=tk;m.style.color="var(--teal)";m.textContent="جاري الحفظ...";
-  try{await fn();m.textContent="تم الحفظ. التغيير يظهر للزبائن خلال دقيقة تقريباً."}
-  catch(e){m.style.color="#b03a2e";m.textContent=e.message}
+ const m=$("msg"),tk=$("tok").value.trim();
+ if(!tk){m.style.color="#ff8a8a";m.textContent="حطي التوكن أول";return}
+ localStorage.jp_token=tk;m.style.color="#9be0c4";m.textContent="جاري الحفظ...";
+ try{await fn();m.textContent="تم الحفظ ✅ التغيير يظهر للزبائن خلال دقيقة تقريباً."}
+ catch(e){m.style.color="#ff8a8a";m.textContent=e.message}
 }
 function openP(){
-  $("panel").style.display="block";
-  $("tok").value=localStorage.jp_token||"";
-  $("a_code").value=data.code;$("a_name").value=data.name;$("a_link").value=data.link;
-  $("p_cat").innerHTML=CATS.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join("");
+ $("adminPanel").style.display="block";
+ $("tok").value=localStorage.jp_token||"";
+ $("a_code").value=data.code;$("a_link").value=data.link;$("a_name").value=data.name;
+ $("p_cat").innerHTML=CATS.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join("");
 }
-function closeP(){$("panel").style.display="none"}
-$("adminbar").onclick=openP;
-$("saveS").onclick=()=>run(async()=>{data.code=$("a_code").value.trim()||"J4YECUK";data.name=$("a_name").value.trim()||"Jo Picks";data.link=$("a_link").value.trim()||data.link;await saveData();render()});
+$("fab").onclick=openP;
+$("closeBtn").onclick=()=>$("adminPanel").style.display="none";
+$("saveS").onclick=()=>run(async()=>{data.code=$("a_code").value.trim()||"J4YECUK";data.link=$("a_link").value.trim()||data.link;data.name=$("a_name").value.trim()||"Jo Picks";await saveData();render()});
 $("addP").onclick=()=>run(async()=>{
-  const f=$("p_img").files[0],v=$("p_vid").files[0];
-  if(!$("p_name").value||!$("p_price").value||(!f&&!v))throw new Error("عبّي الاسم والسعر وحطي صورة أو فيديو");
-  const id="p"+Date.now(),p={id,cat:$("p_cat").value,name:$("p_name").value,price:$("p_price").value,link:$("p_link").value.trim()};
-  if(f){await putFile(`media/${id}.jpg`,await fileB64(f,true),"add photo");p.img=`media/${id}.jpg`}
-  if(v){await putFile(`media/${id}.mp4`,await fileB64(v,false),"add video");p.vid=`media/${id}.mp4`}
-  data.products.unshift(p);await saveData();render();
-  ["p_name","p_price","p_link","p_img","p_vid"].forEach(k=>$(k).value="");
+ const f=$("p_img").files[0],v=$("p_vid").files[0];
+ if(!$("p_name").value||!$("p_price").value||(!f&&!v))throw new Error("عبّي الاسم والسعر وحطي صورة أو فيديو");
+ const id="p"+Date.now(),p={id,cat:$("p_cat").value,name:$("p_name").value,price:$("p_price").value,link:$("p_link").value.trim()};
+ if(f){await putFile(`media/${id}.jpg`,await fileB64(f,true),"add photo");p.img=`media/${id}.jpg`}
+ if(v){await putFile(`media/${id}.mp4`,await fileB64(v,false),"add video");p.vid=`media/${id}.mp4`}
+ data.products.unshift(p);await saveData();render();
+ ["p_name","p_price","p_link","p_img","p_vid"].forEach(k=>$(k).value="");
 });
-$("clr").onclick=()=>{if(!confirm("تمسحين كل المنتجات؟"))return;run(async()=>{data.products=[];await saveData();render()})};
+$("clr").onclick=()=>{if(!confirm("مسح كل المنتجات؟"))return;run(async()=>{data.products=[];await saveData();render()})};
 async function removeP(id){
-  if(!confirm("تحذفين هذا المنتج؟"))return;
-  data.products=data.products.filter(p=>p.id!==id);
-  try{if(!gh().t)throw new Error("افتحي لوحة الإدارة وحطي التوكن أول");await saveData();render()}catch(e){alert(e.message);load()}
+ if(!confirm("حذف المنتج؟"))return;
+ data.products=data.products.filter(p=>p.id!==id);
+ try{if(!gh().t)throw new Error("افتحي لوحة الأدمن وحطي التوكن أول");await saveData();render()}catch(e){alert(e.message);load()}
 }
 load().then(()=>{
-  if(location.hash==="#admin"){
-    const c=prompt("رمز الأدمن");
-    if(c&&c.trim().toLowerCase()===ADMIN_CODE){isAdmin=true;document.body.classList.add("admin")}
-  }
+ if(location.hash==="#admin"){
+  const c=prompt("رمز الأدمن:");
+  if(c&&c.trim().toLowerCase()===ADMIN_CODE)document.body.classList.add("admin");
+ }
 });
 </script>
 </body>
