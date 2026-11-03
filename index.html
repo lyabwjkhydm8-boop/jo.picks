@@ -100,10 +100,17 @@ let cur="all",shown=PAGE;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safe=u=>/^https?:\/\//i.test(u||"")?u:"#";
+const b64=s=>btoa(unescape(encodeURIComponent(s)));
 
 async function load(){
- try{const r=await fetch("data.json?v="+Date.now());if(r.ok)data=Object.assign(data,await r.json())}catch(e){}
- data.products=data.products||[];render();
+ let ok=false;
+ try{
+  const r=await fetch("data.json?v="+Date.now(),{cache:"no-store"});
+  if(r.ok){const j=await r.json();if(j&&Array.isArray(j.products)){data=Object.assign(data,j);ok=true}}
+ }catch(e){}
+ data.products=data.products||[];
+ render();
+ if(!ok)$("sections").innerHTML='<div class="empty">تعذر تحميل المنتجات الحين، حدّثي الصفحة 🤍</div>';
 }
 function render(){
  $("mainCode").textContent=data.code;
@@ -137,16 +144,50 @@ function gh(){
  const h=location.hostname,parts=location.pathname.split("/").filter(Boolean);
  return {o:localStorage.jp_owner||h.split(".")[0],r:localStorage.jp_repo||parts[0]||h,t:localStorage.jp_token};
 }
-async function api(path,method,body){
+async function api(path,method,body,accept){
  const {o,r,t}=gh();
- return fetch(`https://api.github.com/repos/${o}/${r}/contents/${path}`,{method,headers:{Authorization:"Bearer "+t,Accept:"application/vnd.github+json"},body:body?JSON.stringify(body):undefined});
+ return fetch(`https://api.github.com/repos/${o}/${r}/contents/${path}`,{method,cache:"no-store",headers:{Authorization:"Bearer "+t,Accept:accept||"application/vnd.github+json"},body:body?JSON.stringify(body):undefined});
 }
-async function putFile(path,b64,msg){
+async function putFile(path,content,msg){
  const g=await api(path,"GET");let sha;if(g.ok)sha=(await g.json()).sha;
- const p=await api(path,"PUT",{message:msg,content:b64,sha});
+ const p=await api(path,"PUT",{message:msg,content,sha});
  if(!p.ok)throw new Error((await p.json()).message||"فشل الحفظ");
 }
-const saveData=()=>putFile("data.json",btoa(unescape(encodeURIComponent(JSON.stringify(data)))),"update store");
+/* قراءة آخر نسخة من data.json مباشرة من GitHub (مو من الصفحة) */
+async function readRemote(){
+ const r=await api("data.json","GET");
+ if(!r.ok)throw new Error("تعذر قراءة data.json من GitHub ("+r.status+"). ما تم أي تغيير.");
+ const j=await r.json();
+ let text;
+ if(j.content){
+  text=new TextDecoder().decode(Uint8Array.from(atob(j.content.replace(/\s/g,"")),c=>c.charCodeAt(0)));
+ }else{
+  const raw=await api("data.json","GET",null,"application/vnd.github.raw+json");
+  if(!raw.ok)throw new Error("تعذر قراءة data.json. ما تم أي تغيير.");
+  text=await raw.text();
+ }
+ let d;
+ try{d=JSON.parse(text)}catch(e){throw new Error("ملف data.json تالف. ما تم أي تغيير.")}
+ if(!d||!Array.isArray(d.products))throw new Error("ملف data.json غير صالح. ما تم أي تغيير.");
+ return {d,text,sha:j.sha};
+}
+/* كل تعديل يمر من هنا: يقرأ آخر نسخة، يحفظ نسخة احتياطية، ثم يعدّل ويحفظ */
+async function mutate(fn){
+ const {d,text,sha}=await readRemote();
+ if(d.products.length>0){
+  try{await putFile("data.backup.json",b64(text),"backup")}
+  catch(e){throw new Error("فشل حفظ النسخة الاحتياطية. ما تم أي تغيير.")}
+ }
+ const nd=JSON.parse(text);
+ fn(nd);
+ const p=await api("data.json","PUT",{message:"update store",content:b64(JSON.stringify(nd)),sha});
+ if(!p.ok){
+  if(p.status===409)throw new Error("الملف تغيّر أثناء الحفظ، حاولي مرة ثانية.");
+  throw new Error((await p.json()).message||"فشل الحفظ");
+ }
+ data=Object.assign(data,nd);
+ data.products=nd.products;
+}
 function fileB64(f,img){return new Promise((ok,no)=>{
  const rd=new FileReader();rd.onerror=no;
  rd.onload=()=>{
@@ -161,7 +202,7 @@ async function run(fn){
  const m=$("msg"),tk=$("tok").value.trim();
  if(!tk){m.style.color="#ff8a8a";m.textContent="حطي التوكن أول";return}
  localStorage.jp_token=tk;m.style.color="#9be0c4";m.textContent="جاري الحفظ...";
- try{await fn();m.textContent="تم الحفظ ✅ التغيير يظهر للزبائن خلال دقيقة تقريباً."}
+ try{await fn();m.textContent="تم الحفظ ✅ التغيير يظهر للزبائن خلال دقيقة تقريباً. (نسخة احتياطية في data.backup.json)"}
  catch(e){m.style.color="#ff8a8a";m.textContent=e.message}
 }
 function openP(){
@@ -172,21 +213,33 @@ function openP(){
 }
 $("fab").onclick=openP;
 $("closeBtn").onclick=()=>$("adminPanel").style.display="none";
-$("saveS").onclick=()=>run(async()=>{data.code=$("a_code").value.trim()||"J4YECUK";data.link=$("a_link").value.trim()||data.link;data.name=$("a_name").value.trim()||"Jo Picks";await saveData();render()});
+$("saveS").onclick=()=>run(async()=>{
+ const code=$("a_code").value.trim()||"J4YECUK",link=$("a_link").value.trim(),name=$("a_name").value.trim()||"Jo Picks";
+ await mutate(d=>{d.code=code;d.link=link||d.link;d.name=name});
+ render();
+});
 $("addP").onclick=()=>run(async()=>{
  const f=$("p_img").files[0],v=$("p_vid").files[0];
  if(!$("p_name").value||!$("p_price").value||(!f&&!v))throw new Error("عبّي الاسم والسعر وحطي صورة أو فيديو");
  const id="p"+Date.now(),p={id,cat:$("p_cat").value,name:$("p_name").value,price:$("p_price").value,link:$("p_link").value.trim()};
  if(f){await putFile(`media/${id}.jpg`,await fileB64(f,true),"add photo");p.img=`media/${id}.jpg`}
  if(v){await putFile(`media/${id}.mp4`,await fileB64(v,false),"add video");p.vid=`media/${id}.mp4`}
- data.products.unshift(p);await saveData();render();
+ await mutate(d=>{d.products.unshift(p)});
+ render();
  ["p_name","p_price","p_link","p_img","p_vid"].forEach(k=>$(k).value="");
 });
-$("clr").onclick=()=>{if(!confirm("مسح كل المنتجات؟"))return;run(async()=>{data.products=[];await saveData();render()})};
+$("clr").onclick=()=>{
+ const w=prompt("لمسح كل المنتجات اكتبي كلمة: مسح");
+ if(!w||w.trim()!=="مسح")return;
+ run(async()=>{await mutate(d=>{d.products=[]});render()});
+};
 async function removeP(id){
  if(!confirm("حذف المنتج؟"))return;
- data.products=data.products.filter(p=>p.id!==id);
- try{if(!gh().t)throw new Error("افتحي لوحة الأدمن وحطي التوكن أول");await saveData();render()}catch(e){alert(e.message);load()}
+ try{
+  if(!gh().t)throw new Error("افتحي لوحة الأدمن وحطي التوكن أول");
+  await mutate(d=>{d.products=d.products.filter(p=>p.id!==id)});
+  render();
+ }catch(e){alert(e.message);load()}
 }
 load().then(()=>{
  if(location.hash==="#admin"){
